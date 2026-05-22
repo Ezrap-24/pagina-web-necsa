@@ -1,0 +1,149 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.prop{font-family:var(--font-sans);color:var(--color-text-primary);max-width:680px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:6px}
+.page-block{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:14px 16px;margin-bottom:8px}
+.page-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.page-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.badge-must{background:var(--color-background-info);color:var(--color-text-info)}
+.badge-opt{background:var(--color-background-secondary);color:var(--color-text-secondary)}
+.accent-bar{width:3px;border-radius:2px;background:#185FA5;margin-right:10px;flex-shrink:0}
+.row{display:flex;align-items:flex-start}
+.palette-swatch{width:28px;height:28px;border-radius:6px;border:0.5px solid var(--color-border-tertiary)}
+.palette-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px}
+.pal-label{font-size:11px;color:var(--color-text-secondary);margin-top:3px;text-align:center}
+.pal-item{display:flex;flex-direction:column;align-items:center;gap:2px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.stat-card{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 12px}
+.stat-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.stat-lbl{font-size:11px;color:var(--color-text-secondary);margin-top:1px}
+.tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+.tech-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:10px 12px}
+.tech-name{font-size:13px;font-weight:500}
+.tech-desc{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.divider{border:none;border-top:0.5px solid var(--color-border-tertiary);margin:16px 0}
+.btn-row{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+</style>
+
+<div class="prop">
+  <h2 class="sr-only">Propuesta de sitio web para constructora en Santiago de Chile</h2>
+
+  <div class="section-label">Arquitectura del sitio</div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-home" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Inicio (hero) <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Headline impactante, imagen de obra destacada, CTA principal "Cotiza tu proyecto" y confianza inmediata: años de trayectoria + proyectos entregados.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-building" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Servicios <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Dos líneas claras: residencial (casas, condominios, remodelaciones) y comercial (oficinas, locales, naves industriales). Fichas visuales por categoría.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-photo" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Portafolio / proyectos <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Galería filtrable por tipo (residencial / comercial). Cada proyecto con ficha: ubicación en Santiago, m², año de entrega y descripción breve.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-users" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Nosotros / empresa <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Historia, misión, equipo directivo y certificaciones. Genera confianza para clientes que evalúan contratar obras de alto valor.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-message" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Testimonios / clientes <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Reseñas reales con foto, nombre y tipo de proyecto. Logos de empresas clientes (sector comercial). Elemento clave de conversión.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px;background:#0F6E56"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-mail" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Contacto / cotización <span class="badge badge-must">esencial</span></div>
+        <div class="page-desc">Formulario de contacto con tipo de proyecto, m² aproximados y región. Mapa con ubicación en Santiago. WhatsApp flotante para captación inmediata.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-block">
+    <div class="row">
+      <div class="accent-bar" style="height:42px;background:#B4B2A9"></div>
+      <div>
+        <div class="page-title"><i class="ti ti-pencil" style="font-size:14px;margin-right:5px" aria-hidden="true"></i>Blog / noticias <span class="badge badge-opt">opcional</span></div>
+        <div class="page-desc">Artículos sobre materiales, normativa chilena (OGUC), permisos de edificación. Mejora el SEO local en Google Santiago.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">Paleta de color propuesta</div>
+  <div class="page-block">
+    <div class="page-desc">Propuesta sobria y profesional: azul petróleo como color principal (autoridad, confianza), gris antracita para estructura, y un acento en arena/dorado que evoca construcción sin caer en clichés.</div>
+    <div class="palette-row">
+      <div class="pal-item"><div class="palette-swatch" style="background:#0C2340"></div><div class="pal-label">Petróleo</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#185FA5"></div><div class="pal-label">Azul</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#378ADD"></div><div class="pal-label">Azul claro</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#2C2C2A"></div><div class="pal-label">Antracita</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#888780"></div><div class="pal-label">Gris medio</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#D3D1C7"></div><div class="pal-label">Gris claro</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#BA7517"></div><div class="pal-label">Dorado</div></div>
+      <div class="pal-item"><div class="palette-swatch" style="background:#FAC775"></div><div class="pal-label">Arena</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">Métricas y alcance estimado</div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-num">7</div><div class="stat-lbl">Secciones / páginas</div></div>
+    <div class="stat-card"><div class="stat-num">8–12</div><div class="stat-lbl">Semanas de desarrollo</div></div>
+    <div class="stat-card"><div class="stat-num">2</div><div class="stat-lbl">Idiomas sugeridos (ES/EN)</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">Stack tecnológico recomendado</div>
+  <div class="tech-grid">
+    <div class="tech-card"><i class="ti ti-brand-nextjs" style="font-size:16px;margin-bottom:4px" aria-hidden="true"></i><div class="tech-name">Next.js + Tailwind</div><div class="tech-desc">Rápido, SEO-friendly, fácil de mantener</div></div>
+    <div class="tech-card"><i class="ti ti-brand-wordpress" style="font-size:16px;margin-bottom:4px" aria-hidden="true"></i><div class="tech-name">WordPress (alternativa)</div><div class="tech-desc">Si la empresa gestionará el contenido sola</div></div>
+    <div class="tech-card"><i class="ti ti-photo" style="font-size:16px;margin-bottom:4px" aria-hidden="true"></i><div class="tech-name">Cloudinary / Imagekit</div><div class="tech-desc">Galería de proyectos optimizada</div></div>
+    <div class="tech-card"><i class="ti ti-map-pin" style="font-size:16px;margin-bottom:4px" aria-hidden="true"></i><div class="tech-name">Google Maps + Analytics</div><div class="tech-desc">Geolocalización y métricas de visitas</div></div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-label">Próximos pasos</div>
+  <div class="btn-row">
+    <button onclick="sendPrompt('Genera el mapa de sitio detallado con URLs y jerarquía de páginas')">Mapa de sitio detallado ↗</button>
+    <button onclick="sendPrompt('Genera un wireframe de la página de inicio para la constructora')">Wireframe del inicio ↗</button>
+    <button onclick="sendPrompt('Propón una estrategia de contenidos y SEO local para Santiago')">Estrategia SEO ↗</button>
+    <button onclick="sendPrompt('Estima el presupuesto de desarrollo para el sitio web de la constructora')">Presupuesto estimado ↗</button>
+  </div>
+</div>
