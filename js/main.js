@@ -184,8 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const nombre = document.getElementById('form-nombre');
       const correo = document.getElementById('form-correo');
       const telefono = document.getElementById('form-telefono');
-      const servicio = document.getElementById('form-servicio');
-      const mensaje = document.getElementById('form-mensaje');
       
       // 5.3 Validaciones
       let errors = [];
@@ -210,20 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
         telefono.style.borderColor = 'var(--color-error)';
       } else {
         telefono.style.borderColor = 'var(--color-secondary-light)';
-      }
-      
-      if (!servicio.value) {
-        errors.push("Selecciona un tipo de proyecto.");
-        servicio.style.borderColor = 'var(--color-error)';
-      } else {
-        servicio.style.borderColor = 'var(--color-secondary-light)';
-      }
-      
-      if (!mensaje.value.trim() || mensaje.value.trim().length < 10) {
-        errors.push("Por favor, describe tu proyecto con más detalle (mínimo 10 caracteres).");
-        mensaje.style.borderColor = 'var(--color-error)';
-      } else {
-        mensaje.style.borderColor = 'var(--color-secondary-light)';
       }
       
       // Mostrar errores si existen
