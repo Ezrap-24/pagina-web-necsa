@@ -89,7 +89,7 @@ img {
 }
 
 .section-dark .section-badge {
-  background-color: rgba(194, 155, 56, 0.15);
+  background-color: rgba(24, 95, 165, 0.15);
 }
 
 .section-title {
@@ -226,18 +226,18 @@ img {
 }
 
 .logo-img {
-  height: 48px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   border-radius: var(--border-radius-sm);
   transition: var(--transition-smooth);
   background-color: #ffffff;
-  padding: 2px;
-  box-shadow: 0 2px 8px rgba(12, 35, 64, 0.1);
+  padding: 4px;
+  box-shadow: 0 2px 8px rgba(16, 54, 91, 0.15);
 }
 
 .header.scrolled .logo-img {
-  height: 42px;
+  height: 48px;
 }
 
 .logo-text {
@@ -375,7 +375,7 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(10, 25, 47, 0.9) 30%, rgba(15, 59, 104, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(16, 54, 91, 0.95) 30%, rgba(105, 110, 116, 0.4) 100%);
   z-index: 2;
 }
 
@@ -394,8 +394,8 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: rgba(194, 155, 56, 0.18);
-  border: 1px solid rgba(194, 155, 56, 0.3);
+  background-color: rgba(24, 95, 165, 0.18);
+  border: 1px solid rgba(24, 95, 165, 0.3);
   padding: 6px 16px;
   border-radius: 50px;
   font-family: var(--font-headings);
@@ -504,6 +504,13 @@ img {
 .service-description {
   color: var(--text-muted);
   font-size: 0.95rem;
+  text-align: justify;
+}
+
+@media (min-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* --- SECCIÓN PORTAFOLIO (PROYECTOS) --- */
@@ -545,7 +552,7 @@ img {
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   cursor: pointer;
 }
 

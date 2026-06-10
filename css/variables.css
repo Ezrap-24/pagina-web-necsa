@@ -6,32 +6,32 @@
 :root {
   /* --- PALETA DE COLORES OFICIAL --- */
   
-  /* Azul Petróleo Principal (Autoridad, Confianza) */
-  --color-primary: #0C2340;                  
-  --color-primary-hover: #185FA5;            /* Azul Medio */
-  --color-primary-light: hsl(214, 68%, 97%);  
-  --color-primary-rgb: 12, 35, 64;
+  /* Azul Institucional Principal (Autoridad, Confianza) */
+  --color-primary: #10365B;                  
+  --color-primary-hover: #1A4E7F;            /* Azul Medio */
+  --color-primary-light: #F0F4F8;  
+  --color-primary-rgb: 16, 54, 91;
   
-  /* Gris Antracita Estructural (Ingeniería, Celosías) */
-  --color-secondary: #2C2C2A;                
-  --color-secondary-hover: #888780;          /* Gris medio */
-  --color-secondary-light: #D3D1C7;          /* Gris claro */
+  /* Gris Metalizado Estructural (Ingeniería, Celosías) */
+  --color-secondary: #696E74;                
+  --color-secondary-hover: #54595E;          /* Gris medio */
+  --color-secondary-light: #E2E4E6;          /* Gris claro */
   
-  /* Acento Premium (Dorado / Arena) */
-  --color-accent: #BA7517;                   /* Dorado - Excelencia constructiva */
-  --color-accent-hover: #9E6010;
-  --color-accent-light: #FAC775;             /* Arena - Construcción y luminosidad */
-  --color-accent-rgb: 186, 117, 23;
+  /* Acento Premium (Azul Acento / Plata) */
+  --color-accent: #185FA5;                   /* Azul de acento */
+  --color-accent-hover: #134D80;
+  --color-accent-light: #D9E5F0;             /* Azul claro de soporte */
+  --color-accent-rgb: 24, 95, 165;
 
   /* Colores de Fondo */
   --bg-primary: #ffffff;
-  --bg-secondary: #F7F6F3;                   /* Fondo cálido y limpio tono arena suave */
-  --bg-dark: #071526;                        /* Petróleo ultra-oscuro metalizado */
-  --bg-dark-card: #0C2340;
+  --bg-secondary: #F4F6F8;                   /* Fondo metálico claro y limpio */
+  --bg-dark: #0A1C30;                        /* Azul oscuro institucional */
+  --bg-dark-card: #10365B;
   
   /* Colores de Texto */
-  --text-dark: #2C2C2A;                      /* Antracita legible */
-  --text-muted: #666560;                     /* Gris intermedio */
+  --text-dark: #1F2937;                      /* Gris oscuro legible */
+  --text-muted: #4B5563;                     /* Gris intermedio */
   --text-light: #ffffff;                     
   
   /* Colores de Validación y Estado */
