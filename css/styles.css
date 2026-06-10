@@ -402,6 +402,26 @@ img {
   animation: fadeInUp 1s ease-out;
 }
 
+.hero-company {
+  font-family: var(--font-headings);
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: block;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+  .hero-company {
+    font-size: 1.6rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.4rem;
+  }
+}
+
 .hero-badge {
   display: inline-flex;
   align-items: center;
