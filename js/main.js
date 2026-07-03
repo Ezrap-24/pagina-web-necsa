@@ -109,62 +109,69 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* ==========================================================================
-     4. CONTADORES DINÁMICOS DE MÉTRICAS (SCROLL-TRIGGERED)
+     4. CARRUSEL DE FOTOS EN TARJETAS DE PROYECTOS
      ========================================================================== */
-  const metricsSection = document.querySelector('.metrics-section');
-  const metricNumbers = document.querySelectorAll('.metric-number');
-  let animated = false;
-  
-  const animateCounters = () => {
-    metricNumbers.forEach(counter => {
-      const targetText = counter.innerText;
-      // Extraer números y sufijos (+, %, k)
-      const target = parseFloat(targetText);
-      const suffix = targetText.replace(/[0-9.]/g, ''); 
-      
-      let count = 0;
-      const speed = 2000 / target; // El conteo dura 2 segundos
-      
-      const updateCount = () => {
-        count++;
-        if (count <= target) {
-          // Si el sufijo tiene un 'k', mostrar como decimal o entero
-          counter.innerText = count + suffix;
-          setTimeout(updateCount, speed);
-        } else {
-          counter.innerText = targetText; // Asegurar que quede el texto original
-        }
-      };
-      
-      updateCount();
-    });
-  };
-  
-  // Utilizar IntersectionObserver para activar la animación justo al entrar en pantalla
-  if (metricsSection && 'IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animated) {
-          animateCounters();
-          animated = true;
-          observer.unobserve(entry.target); // Detener observación una vez animado
-        }
+  portfolioItems.forEach(item => {
+    const images = Array.from(item.querySelectorAll('.portfolio-img'));
+    const dotsWrapper = item.querySelector('.carousel-dots');
+    const prevBtn = item.querySelector('.carousel-prev');
+    const nextBtn = item.querySelector('.carousel-next');
+
+    if (images.length <= 1) {
+      item.setAttribute('data-single', '');
+      item.classList.add('is-first');
+      return;
+    }
+
+    let current = images.findIndex(img => img.classList.contains('active'));
+    if (current < 0) current = 0;
+    item.classList.toggle('is-first', current === 0);
+
+    // Generar puntos indicadores dinámicamente
+    const dots = images.map((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'dot' + (i === current ? ' active' : '');
+      dot.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goTo(i);
       });
-    }, { threshold: 0.3 });
-    
-    observer.observe(metricsSection);
-  } else {
-    // Fallback si no está soportado el Observer
-    window.addEventListener('scroll', () => {
-      if (metricsSection && !animated) {
-        const rect = metricsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom >= 0) {
-          animateCounters();
-          animated = true;
-        }
-      }
+      dotsWrapper.appendChild(dot);
+      return dot;
     });
-  }
+
+    function goTo(index) {
+      images[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = (index + images.length) % images.length;
+      images[current].classList.add('active');
+      dots[current].classList.add('active');
+      item.classList.toggle('is-first', current === 0);
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goTo(current - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        goTo(current + 1);
+      });
+    }
+
+    // Auto-avance suave cada 4.5s, pausado al pasar el mouse
+    let autoplay = setInterval(() => goTo(current + 1), 4500);
+    item.addEventListener('mouseenter', () => clearInterval(autoplay));
+    item.addEventListener('mouseleave', () => {
+      autoplay = setInterval(() => goTo(current + 1), 4500);
+    });
+  });
 
   /* ==========================================================================
      5. FORMULARIO DE CONTACTO PREMIUM (VALIDACIÓN Y SIMULACIÓN)
