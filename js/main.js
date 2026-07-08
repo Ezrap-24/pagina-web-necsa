@@ -16,7 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
-  
+  const heroActions = document.querySelector('.hero-actions');
+
   const handleScroll = () => {
     // 1.1 Cambiar fondo del header al hacer scroll
     if (window.scrollY > 50) {
@@ -24,7 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       header.classList.remove('scrolled');
     }
-    
+
+    // 1.1.b Expandir el logo (N -> NECSA) al acercarse al botón "Ver Obras Realizadas"
+    if (heroActions) {
+      const triggerPoint = heroActions.getBoundingClientRect().top + window.scrollY - 140;
+      if (window.scrollY > triggerPoint) {
+        header.classList.add('logo-expand');
+      } else {
+        header.classList.remove('logo-expand');
+      }
+    }
+
     // 1.2 Detectar sección activa en el menú
     let scrollY = window.pageYOffset;
     
@@ -172,6 +183,44 @@ document.addEventListener('DOMContentLoaded', () => {
       autoplay = setInterval(() => goTo(current + 1), 4500);
     });
   });
+
+  /* ==========================================================================
+     4.b ANIMACIÓN DE CONTADORES DE MÉTRICAS (SCROLL-TRIGGERED)
+     ========================================================================== */
+  const statNumbers = document.querySelectorAll('.stat-number');
+
+  if (statNumbers.length) {
+    const animateCount = (el) => {
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const suffix = el.getAttribute('data-suffix') || '';
+      const duration = 1800;
+      const startTime = performance.now();
+
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3); // ease-out cúbico
+        const current = Math.round(target * eased);
+        el.textContent = current + suffix;
+
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        }
+      };
+
+      requestAnimationFrame(step);
+    };
+
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    statNumbers.forEach(el => statsObserver.observe(el));
+  }
 
   /* ==========================================================================
      5. FORMULARIO DE CONTACTO PREMIUM (VALIDACIÓN Y SIMULACIÓN)

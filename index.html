@@ -15,7 +15,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Michroma&display=swap" rel="stylesheet">
   
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -31,7 +31,10 @@
       
       <!-- Logotipo Oficial Integrado de Necsa -->
       <a href="#inicio" class="logo" id="logo-link">
-        <img src="assets/images/logo 2 sin texto ni subrayado (2).png" alt="Logo Necsa Constructora" class="logo-img">
+        <img src="assets/images/logo-n-sola.png" alt="Logo Necsa Constructora" class="logo-img">
+        <span class="logo-ecsa-wrap">
+          <img src="assets/images/logo-ecsa-only.png" alt="ECSA" class="logo-ecsa-img">
+        </span>
       </a>
       
       <!-- Menú de Navegación -->
@@ -62,9 +65,9 @@
     </div>
     <div class="container hero-container">
       <div class="hero-content">
-        <div class="hero-company">NECSA <span style="font-weight: 300; color: var(--color-secondary-light);">CONSTRUCTORA</span></div>
-        <h1 class="hero-title">Ingeniería y Construcción de <span>Vanguardia</span></h1>
-        <p class="hero-tagline">“Construimos con visión, ejecutamos con excelencia”</p>
+        <img src="assets/images/logo-necsa-constructora-white.png" alt="Necsa Constructora" class="hero-logo">
+        <h1 class="hero-title">Construimos con visión, ejecutamos con <span>excelencia</span></h1>
+        <div class="hero-badge"><i class="fa-solid fa-building"></i> Edificación y Estructuras</div>
         <p class="hero-description">En NECSA construimos y desarrollamos proyectos con visión, eficiencia y excelencia técnica, buscando soluciones constructivas confiables e innovadoras, priorizando la seguridad, la calidad y el cumplimiento, bajo una filosofía basada en el buen construir, la lealtad y compromiso total con nuestros clientes.</p>
         <div class="hero-actions">
           <a href="#proyectos" class="btn btn-accent"><i class="fa-solid fa-compass-drafting"></i> Ver Obras Realizadas</a>
@@ -79,16 +82,18 @@
       <div class="about-wrapper" style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: var(--spacing-lg);">
         <h2 class="section-title" style="display: block; margin-bottom: var(--spacing-md);">Solidez, Rigor Técnico y Confianza</h2>
       </div>
-      
+
       <div class="vision-container">
-        <!-- Card Visión -->
+        <!-- Card Quiénes Somos (reemplaza a Visión, que queda implícita en el Hero) -->
         <div class="vision-card">
           <div class="vision-icon">
-            <i class="fa-solid fa-eye"></i>
+            <i class="fa-solid fa-building-columns"></i>
           </div>
-          <h3 class="vision-title">Nuestra Visión</h3>
           <p class="vision-text">
-            Queremos ser una empresa referente en construcción e infraestructura a nivel nacional, reconocida por su capacidad de ejecución, innovación, confiabilidad y excelencia operacional, aportando valor sostenible en cada proyecto que desarrollamos.
+            NECSA nace hace 14 años, en la búsqueda del desarrollo profesional y organizacional. Siempre manteniendo una visión de mejora en los procesos y la mejora continua al transmitir la experiencia, lealtad y valores personales hacia el desarrollo empresarial.
+          </p>
+          <p class="vision-text">
+            Uno de los motores principales para nosotros son los valores que buscamos transmitir desde todas las personas que conforman NECSA hasta nuestros clientes, con el fin de otorgar confianza, lealtad y respeto desde el trato diario, sintiéndose acompañados desde la génesis del proyecto hasta la tranquilidad de recibir su obra puesta en marcha correctamente.
           </p>
         </div>
       </div>
@@ -107,51 +112,67 @@
       </div>
       
       <div class="services-grid">
-        
+
         <!-- Tarjeta 1: Montajes -->
-        <article class="service-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="service-icon-wrapper">
-              <i class="fa-solid fa-industry"></i>
-            </div>
+        <article class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-industry"></i>
+          </div>
+          <div class="service-content">
             <h3 class="service-title">NECSA Montajes</h3>
-            <p class="service-description">Desarrollamos soluciones integrales para proyectos de montaje industrial y estructuras metálicas, participando en obras de distinta complejidad para los sectores retail, industrial, infraestructura y transportes.</p>
+            <ul class="service-list">
+              <li>Soluciones integrales para montaje industrial y estructuras metálicas.</li>
+              <li>Participación en obras de distinta complejidad.</li>
+              <li>Sectores: retail, industrial, infraestructura y transportes.</li>
+            </ul>
           </div>
         </article>
-        
+
         <!-- Tarjeta 2: Infraestructura -->
-        <article class="service-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="service-icon-wrapper">
-              <i class="fa-solid fa-train-subway"></i>
-            </div>
+        <article class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-train-subway"></i>
+          </div>
+          <div class="service-content">
             <h3 class="service-title">NECSA Infraestructura</h3>
-            <p class="service-description">Desarrollamos proyectos orientados a obras públicas, infraestructura urbana e infraestructura crítica, participando en iniciativas clave que aportan al desarrollo y funcionamiento de Santiago de Chile.</p>
+            <ul class="service-list">
+              <li>Obras públicas, infraestructura urbana e infraestructura crítica.</li>
+              <li>Participación en iniciativas clave para Santiago de Chile.</li>
+              <li>Aporte directo al desarrollo y funcionamiento de la ciudad.</li>
+            </ul>
           </div>
         </article>
-        
+
         <!-- Tarjeta 3: Obras Especiales -->
-        <article class="service-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="service-icon-wrapper">
-              <i class="fa-solid fa-helmet-safety"></i>
-            </div>
+        <article class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-helmet-safety"></i>
+          </div>
+          <div class="service-content">
             <h3 class="service-title">NECSA Obras Especiales</h3>
-            <p class="service-description">Especialistas en la colocación de hormigón proyectado (Shotcrete) para obras civiles, túneles, minería y estabilización de taludes, garantizando procesos eficientes con equipos de última tecnología.</p>
+            <ul class="service-list">
+              <li>Especialistas en hormigón proyectado (Shotcrete).</li>
+              <li>Obras civiles, túneles, minería y estabilización de taludes.</li>
+              <li>Procesos eficientes con equipos de última tecnología.</li>
+            </ul>
           </div>
         </article>
-        
+
         <!-- Tarjeta 4: Ingeniería -->
-        <article class="service-card" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
-          <div>
-            <div class="service-icon-wrapper">
-              <i class="fa-solid fa-compass-drafting"></i>
-            </div>
+        <article class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-compass-drafting"></i>
+          </div>
+          <div class="service-content">
             <h3 class="service-title">NECSA Ingeniería</h3>
-            <p class="service-description">Acompañamos a nuestros clientes desde el diseño y cálculo estructural sismorresistente hasta la tramitación de permisos de edificación ante Direcciones de Obras Municipales (DOM) bajo ordenanza OGUC.</p>
+            <ul class="service-list">
+              <li>Diseño y cálculo estructural sismorresistente.</li>
+              <li>Tramitación de permisos ante Direcciones de Obras Municipales (DOM).</li>
+              <li>Cumplimiento bajo ordenanza OGUC.</li>
+            </ul>
           </div>
         </article>
-        
+
       </div>
     </div>
   </section>
@@ -264,6 +285,26 @@
     </div>
   </section>
 
+  <!-- --- SECCIÓN MÉTRICAS / ESTADÍSTICAS --- -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <span class="stat-number" data-target="12" data-suffix="+">0</span>
+          <p class="stat-label">Años de Trayectoria</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="150" data-suffix="+">0</span>
+          <p class="stat-label">Proyectos Ejecutados</p>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" data-target="300" data-suffix="k+">0</span>
+          <p class="stat-label">M2 Proyectados de Mortero</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- --- SECCIÓN CONTACTO --- -->
   <section class="section-alt" id="contacto">
     <div class="container">
@@ -346,7 +387,8 @@
         <!-- Columna 1: Nosotros -->
         <div class="footer-about">
           <div class="logo">
-            <img src="assets/images/logo 1 con texto.png" alt="Logo Necsa" style="height: 55px; border-radius: var(--border-radius-sm); background-color: #fff; padding: 3px;">
+            <img src="assets/images/logo-n-sola.png" alt="Necsa Constructora" style="height: 50px;">
+            <img src="assets/images/logo-necsa-constructora.png" alt="Logo Necsa Constructora" style="height: 40px; border-radius: var(--border-radius-sm); background-color: #fff; padding: 3px;">
           </div>
           <p class="footer-desc">Ingeniería, montaje industrial, obras de infraestructura y soluciones de hormigón proyectado sismorresistentes con los máximos estándares en Santiago de Chile.</p>
           <div class="social-links">
