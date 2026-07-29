@@ -17,3 +17,7 @@ $RECYCLE.BIN/
 # Archivos de registro y temporales
 *.log
 .DS_Store
+
+# Fotos originales sin editar (respaldo pesado, solo local).
+# La seleccion final curada del cliente vive en materiales/seleccion-cliente/
+materiales/fotos-originales/

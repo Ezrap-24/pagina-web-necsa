@@ -21,8 +21,19 @@ Sitio web corporativo de Necsa Constructora. Sitio estático (HTML, CSS y JavaSc
 │       │   ├── llanten/
 │       │   ├── carmarket/
 │       │   └── metro/         # Carpeta lista para cuando lleguen las fotos (tarjeta oculta por ahora)
-│       └── _sin-uso/          # Fotos descartadas / reemplazadas. No se referencian en el sitio.
-└── materiales/           # Material de respaldo (fotos originales, PPTs de revisión). No se usa en producción.
+└── materiales/           # Material de respaldo. No se usa en producción.
+    ├── documentos/            # Excel de coordinación, PPT de revisión de estructura, propuesta inicial
+    ├── logos-aprobados/         # Versiones finales del logo aprobadas por el cliente
+    ├── logos-propuestas/        # Propuestas de identidad visual (PDFs) y logo borrador
+    ├── codigos-enviados-cliente/ # Grillas con fotos numeradas (B1, L1, C1...) que se le mandaron al cliente para elegir
+    ├── seleccion-cliente/        # Fotos ya elegidas por el cliente, por proyecto (fuente de las fotos publicadas)
+    │   ├── blest/
+    │   ├── llanten/
+    │   └── carmarket/
+    └── fotos-originales/         # Respaldo de fotos sin editar (no se sube a git, ver .gitignore)
+        ├── blest/
+        ├── llanten/
+        └── carmarket/
 ```
 
 ## Ver el sitio localmente
@@ -53,7 +64,12 @@ Para agregar o cambiar fotos de un proyecto: reemplazar/agregar los archivos en 
 
 La tarjeta "Obras Metro de Santiago" está comentada en `index.html` (buscar `OCULTO TEMPORALMENTE`) porque aún no tiene fotos finales cargadas. Su carpeta `assets/images/projects/metro/` ya existe con la imagen provisional; para reactivarla, quitar el comentario HTML que envuelve esa tarjeta.
 
-La carpeta `assets/images/_sin-uso/` guarda fotos que se descartaron o fueron reemplazadas por la selección final del cliente. No están referenciadas en el sitio.
+## Flujo de fotos de un proyecto nuevo
+
+1. Se toman fotos originales de la obra → se guardan en `materiales/fotos-originales/<proyecto>/` (respaldo local, no se sube a git).
+2. Se arma una grilla numerada con las mejores candidatas y se envía al cliente → esa grilla queda en `materiales/codigos-enviados-cliente/`.
+3. El cliente responde con los códigos que quiere (ej. "B1, B3, B7") → esas fotos se guardan en `materiales/seleccion-cliente/<proyecto>/`.
+4. Desde ahí se procesan (se recorta cualquier marca de agua, se ajusta orden) y se copian a `assets/images/projects/<proyecto>/` con las rutas que usa `index.html`.
 
 ## Contacto
 
