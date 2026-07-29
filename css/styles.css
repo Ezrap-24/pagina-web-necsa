@@ -731,6 +731,9 @@ img {
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   aspect-ratio: 16 / 10;
+  /* Permite adaptar el overlay al tamaño real de la tarjeta, no del viewport */
+  container-type: inline-size;
+  container-name: portfolio-card;
 }
 
 .portfolio-carousel {
@@ -837,12 +840,21 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: var(--spacing-lg);
+  padding: var(--spacing-md);
+  /* deja aire para no pisar los puntos del carrusel */
+  padding-bottom: calc(var(--spacing-md) + 12px);
   opacity: 0;
   transform: translateY(20px);
   transition: var(--transition-smooth);
   z-index: 2;
   pointer-events: none;
+  overflow: hidden;
+}
+
+/* Evita que el contenido se recorte por arriba en tarjetas bajas */
+.portfolio-overlay > * {
+  flex: 0 0 auto;
+  min-height: 0;
 }
 
 .portfolio-item.is-first:hover .portfolio-overlay {
@@ -867,28 +879,74 @@ img {
 .portfolio-project-title {
   color: var(--text-light);
   font-size: 1.5rem;
+  line-height: 1.25;
   margin-bottom: 5px;
 }
 
 .portfolio-desc {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.9rem;
+  line-height: 1.45;
+  /* Limita el texto para que nunca se recorte contra el borde de la tarjeta */
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.portfolio-cta {
-  pointer-events: auto;
-  align-self: flex-start;
-  margin-top: var(--spacing-sm);
-  font-size: 0.85rem;
-  padding: 0.5rem 1rem;
-  border-color: rgba(255, 255, 255, 0.6);
-  color: #fff;
+/* --- Ajuste del overlay según el ancho REAL de la tarjeta --- */
+@container portfolio-card (max-width: 519px) {
+  .portfolio-overlay {
+    padding: 20px;
+    padding-bottom: 32px;
+  }
+  .portfolio-project-title { font-size: 1.3rem; }
+  .portfolio-desc {
+    font-size: 0.875rem;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+  }
 }
 
-.portfolio-cta:hover {
-  background-color: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #fff;
+@container portfolio-card (max-width: 419px) {
+  .portfolio-overlay {
+    padding: 16px;
+    padding-bottom: 28px;
+  }
+  .portfolio-tag { font-size: 0.7rem; }
+  .portfolio-project-title { font-size: 1.15rem; }
+  .portfolio-desc {
+    font-size: 0.8rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+}
+
+@container portfolio-card (max-width: 339px) {
+  .portfolio-overlay {
+    padding: 14px;
+    padding-bottom: 26px;
+  }
+  .portfolio-project-title { font-size: 1.05rem; }
+  .portfolio-desc {
+    font-size: 0.78rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
+
+/* Fallback para navegadores sin soporte de container queries */
+@supports not (container-type: inline-size) {
+  .portfolio-desc {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+  .portfolio-overlay {
+    padding: 18px;
+    padding-bottom: 30px;
+  }
+  .portfolio-project-title { font-size: 1.2rem; }
 }
 
 /* --- SECCIÓN CONTACTO --- */
@@ -1248,6 +1306,7 @@ textarea.form-input {
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
+
   
   .form-group-row {
     grid-template-columns: 1fr;
