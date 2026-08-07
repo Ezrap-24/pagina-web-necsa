@@ -31,7 +31,7 @@
       
       <!-- Logotipo Oficial Integrado de Necsa -->
       <a href="#inicio" class="logo" id="logo-link">
-        <img src="assets/images/logos/logo-n-sola.png" alt="Logo Necsa Constructora" class="logo-img">
+        <img src="assets/images/logos/N-sola-sin-fondo.png" alt="Logo Necsa Constructora" class="logo-img">
         <span class="logo-ecsa-wrap">
           <img src="assets/images/logos/logo-ecsa-only.png" alt="ECSA" class="logo-ecsa-img">
         </span>
@@ -49,7 +49,7 @@
       </nav>
       
       <!-- Botón Menú Móvil -->
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú">
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir Menú" aria-expanded="false" aria-controls="nav-menu">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -62,16 +62,17 @@
   <section class="hero" id="inicio">
     <div class="hero-bg">
       <img src="assets/images/hero/hero-obra.png" alt="Obras Civiles Necsa en Santiago de Chile">
+      <div class="hero-blueprint" aria-hidden="true"></div>
     </div>
     <div class="container hero-container">
       <div class="hero-content">
-        <img src="assets/images/logos/logo-necsa-constructora-white.png" alt="Necsa Constructora" class="hero-logo">
-        <h1 class="hero-title">Construimos con visión, ejecutamos con <span>excelencia</span></h1>
-        <div class="hero-badge"><i class="fa-solid fa-building"></i> Edificación y Estructuras</div>
-        <p class="hero-description">En NECSA construimos y desarrollamos proyectos con visión, eficiencia y excelencia técnica, buscando soluciones constructivas confiables e innovadoras, priorizando la seguridad, la calidad y el cumplimiento, bajo una filosofía basada en el buen construir, la lealtad y compromiso total con nuestros clientes.</p>
-        <div class="hero-actions">
-          <a href="#proyectos" class="btn btn-accent"><i class="fa-solid fa-compass-drafting"></i> Ver Obras Realizadas</a>
+        <div class="hero-logo" role="img" aria-label="Necsa Constructora">
+          <span class="hero-logo-necsa">NECSA</span>
+          <span class="hero-logo-line"></span>
+          <span class="hero-logo-sub">Constructora</span>
         </div>
+        <h1 class="hero-title">Construimos con visión, ejecutamos con <span>excelencia</span></h1>
+        <p class="hero-description">Proyectos de construcción con seguridad, calidad y compromiso total con nuestros clientes.</p>
       </div>
     </div>
   </section>
@@ -85,16 +86,41 @@
 
       <div class="vision-container">
         <!-- Card Quiénes Somos (reemplaza a Visión, que queda implícita en el Hero) -->
-        <div class="vision-card">
+        <div class="vision-card reveal">
           <div class="vision-icon">
             <i class="fa-solid fa-building-columns"></i>
           </div>
           <p class="vision-text">
-            NECSA nace hace 14 años, en la búsqueda del desarrollo profesional y organizacional. Siempre manteniendo una visión de mejora en los procesos y la mejora continua al transmitir la experiencia, lealtad y valores personales hacia el desarrollo empresarial.
+            NECSA nace hace 14 años, en la búsqueda del desarrollo profesional y organizacional. Siempre manteniendo una visión de mejora continua en los procesos, transmitiendo experiencia, lealtad y valores personales hacia el desarrollo empresarial.
           </p>
           <p class="vision-text">
-            Uno de los motores principales para nosotros son los valores que buscamos transmitir desde todas las personas que conforman NECSA hasta nuestros clientes, con el fin de otorgar confianza, lealtad y respeto desde el trato diario, sintiéndose acompañados desde la génesis del proyecto hasta la tranquilidad de recibir su obra puesta en marcha correctamente.
+            Nuestro principal motor son las personas. Trabajamos con un trato cercano y transparente, acompañando a cada cliente desde la génesis del proyecto hasta la entrega de su obra correctamente puesta en marcha.
           </p>
+        </div>
+      </div>
+
+      <!-- Nuestros Valores: Misión, Lealtad, Visión -->
+      <div class="values-panel">
+        <h3 class="values-title">Nuestros Valores</h3>
+        <div class="values-grid">
+          <div class="value-card reveal">
+            <span class="value-number">01</span>
+            <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
+            <h4 class="value-name">Misión</h4>
+            <p class="value-text">Desarrollar proyectos de construcción con excelencia técnica, seguridad y eficiencia, ofreciendo soluciones confiables e innovadoras basadas en los principios del buen construir.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-number">02</span>
+            <div class="value-icon"><i class="fa-solid fa-handshake"></i></div>
+            <h4 class="value-name">Lealtad</h4>
+            <p class="value-text">Construimos relaciones de confianza con transparencia y compromiso, buscando siempre la mejor alternativa técnica, operacional y económica para cada proyecto.</p>
+          </div>
+          <div class="value-card reveal">
+            <span class="value-number">03</span>
+            <div class="value-icon"><i class="fa-solid fa-mountain"></i></div>
+            <h4 class="value-name">Visión</h4>
+            <p class="value-text">Ser una empresa referente en construcción e infraestructura a nivel nacional, reconocida por su capacidad de ejecución, innovación y excelencia operacional.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -103,7 +129,7 @@
   <!-- --- SECCIÓN SERVICIOS --- -->
   <section class="section-alt services-section" id="servicios">
     <div class="services-bg">
-      <img src="assets/images/backgrounds/project-industrial.png" alt="">
+      <img src="assets/images/backgrounds/edificio-wireframe.png" alt="">
     </div>
     <div class="container">
       <div class="section-title-wrapper">
@@ -114,61 +140,57 @@
       <div class="services-grid">
 
         <!-- Tarjeta 1: Montajes -->
-        <article class="service-card">
+        <article class="service-card reveal">
           <div class="service-icon-wrapper">
             <i class="fa-solid fa-industry"></i>
           </div>
           <div class="service-content">
             <h3 class="service-title">NECSA Montajes</h3>
             <ul class="service-list">
-              <li>Soluciones integrales para montaje industrial y estructuras metálicas.</li>
-              <li>Participación en obras de distinta complejidad.</li>
-              <li>Sectores: retail, industrial, infraestructura y transportes.</li>
+              <li>Montaje industrial y estructuras metálicas para retail, industria, infraestructura y transporte.</li>
+              <li>Fabricación, montaje y apoyo constructivo con foco en calidad, productividad y cumplimiento de plazos.</li>
             </ul>
           </div>
         </article>
 
         <!-- Tarjeta 2: Infraestructura -->
-        <article class="service-card">
+        <article class="service-card reveal">
           <div class="service-icon-wrapper">
             <i class="fa-solid fa-train-subway"></i>
           </div>
           <div class="service-content">
             <h3 class="service-title">NECSA Infraestructura</h3>
             <ul class="service-list">
-              <li>Obras públicas, infraestructura urbana e infraestructura crítica.</li>
-              <li>Participación en iniciativas clave para Santiago de Chile.</li>
-              <li>Aporte directo al desarrollo y funcionamiento de la ciudad.</li>
+              <li>Obras públicas, infraestructura urbana y crítica para el desarrollo del país.</li>
+              <li>Gestión rigurosa con foco en cumplimiento, calidad y continuidad operacional.</li>
             </ul>
           </div>
         </article>
 
         <!-- Tarjeta 3: Obras Especiales -->
-        <article class="service-card">
+        <article class="service-card reveal">
           <div class="service-icon-wrapper">
             <i class="fa-solid fa-helmet-safety"></i>
           </div>
           <div class="service-content">
             <h3 class="service-title">NECSA Obras Especiales</h3>
             <ul class="service-list">
-              <li>Especialistas en hormigón proyectado (Shotcrete).</li>
-              <li>Obras civiles, túneles, minería y estabilización de taludes.</li>
-              <li>Procesos eficientes con equipos de última tecnología.</li>
+              <li>Hormigón proyectado (Shotcrete) para obras civiles, minería, túneles y proyectos habitacionales.</li>
+              <li>Estabilización, sostenimiento y aplicaciones estructurales con estrictos estándares de calidad.</li>
             </ul>
           </div>
         </article>
 
         <!-- Tarjeta 4: Ingeniería -->
-        <article class="service-card">
+        <article class="service-card reveal">
           <div class="service-icon-wrapper">
             <i class="fa-solid fa-compass-drafting"></i>
           </div>
           <div class="service-content">
             <h3 class="service-title">NECSA Ingeniería</h3>
             <ul class="service-list">
-              <li>Diseño y cálculo estructural sismorresistente.</li>
-              <li>Tramitación de permisos ante Direcciones de Obras Municipales (DOM).</li>
-              <li>Cumplimiento bajo ordenanza OGUC.</li>
+              <li>Acompañamiento desde la concepción del proyecto hasta su materialización en obra.</li>
+              <li>Coordinación multidisciplinaria con enfoque colaborativo entre clientes, especialidades y diseño.</li>
             </ul>
           </div>
         </article>
@@ -195,7 +217,7 @@
       <div class="portfolio-grid">
         
         <!-- Proyecto 1: Plaza Blest (Comercial) -->
-        <div class="portfolio-item" data-category="comerciales">
+        <div class="portfolio-item reveal" data-category="comerciales">
           <div class="portfolio-carousel">
             <img src="assets/images/projects/blest/project-blest-1.jpg" alt="Obra Plaza Blest - Necsa Constructora" class="portfolio-img active">
             <img src="assets/images/projects/blest/project-blest-2.jpg" alt="Obra Plaza Blest - Necsa Constructora" class="portfolio-img">
@@ -209,12 +231,12 @@
           <div class="portfolio-overlay">
             <span class="portfolio-tag">Comercial / Strip Center</span>
             <h3 class="portfolio-project-title">Plaza Blest</h3>
-            <p class="portfolio-desc"><strong>Ubicación:</strong> San Miguel, Santiago | <strong>Superficie:</strong> 1.500 m²<br>Moderno centro comercial de locales estructurado en marcos de acero sismorresistente con paisajismo y exhibición de restos arqueológicos.</p>
+            <p class="portfolio-desc">Obra para Metro de Santiago, donde se ejecutó el mejoramiento urbano y áreas verdes de 2.300 m² y la puesta en valor de restos arqueológicos en el Campus Dra. Eloísa Díaz de la Universidad de Chile, encontrados durante la construcción de la Línea 3.</p>
           </div>
         </div>
 
         <!-- Proyecto 2: Casa Llantén (Residencial) -->
-        <div class="portfolio-item" data-category="residenciales">
+        <div class="portfolio-item reveal" data-category="residenciales">
           <div class="portfolio-carousel">
             <img src="assets/images/projects/llanten/project-llanten-1.jpg" alt="Casa Llantén - Edificación Premium Necsa" class="portfolio-img active">
             <img src="assets/images/projects/llanten/project-llanten-2.jpg" alt="Casa Llantén - Edificación Premium Necsa" class="portfolio-img">
@@ -226,12 +248,12 @@
           <div class="portfolio-overlay">
             <span class="portfolio-tag">Residencial</span>
             <h3 class="portfolio-project-title">Casa Llantén</h3>
-            <p class="portfolio-desc"><strong>Ubicación:</strong> Vitacura, Santiago | <strong>Superficie:</strong> 380 m²<br>Vanguardista residencia unifamiliar minimalista estructurada en hormigón visto y ventanales termopanel.</p>
+            <p class="portfolio-desc">Obra para familia Llantén, ejecutada con sistema de acero galvanizado y alto estándar de eficiencia térmica. Incluyó el desarrollo e ingeniería de sistema estructural e instalaciones. Superficie construida: 210 m².</p>
           </div>
         </div>
 
         <!-- Proyecto 3: Car Market (Comercial/Industrial) -->
-        <div class="portfolio-item" data-category="comerciales">
+        <div class="portfolio-item reveal" data-category="comerciales">
           <div class="portfolio-carousel">
             <img src="assets/images/projects/carmarket/project-carmarket-1.jpg" alt="Car Market Showroom - Necsa Constructora" class="portfolio-img active">
             <img src="assets/images/projects/carmarket/project-carmarket-2.jpg" alt="Car Market Showroom - Necsa Constructora" class="portfolio-img">
@@ -244,13 +266,34 @@
           <div class="portfolio-overlay">
             <span class="portfolio-tag">Comercial / Showroom</span>
             <h3 class="portfolio-project-title">Car Market</h3>
-            <p class="portfolio-desc"><strong>Ubicación:</strong> Santiago | <strong>Superficie:</strong> 2.200 m²<br>Showroom de retail automotriz estructurado con pórticos metálicos pesados de grandes luces.</p>
+            <p class="portfolio-desc">Obra industrial comercial construida con sistema de pórticos y pavimentos industriales. Replanteada desde el modelo 3D coordinado. Superficie construida: 420 m².</p>
           </div>
         </div>
 
-        <!-- Proyecto 4: Obras Metro (Infraestructura) -->
+        <!-- Proyecto 4: John Deere - Salfa (Comercial/Industrial) -->
+        <div class="portfolio-item reveal" data-category="comerciales">
+          <div class="portfolio-carousel">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-1.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img active">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-2.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-3.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-4.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-5.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-6.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <img src="assets/images/projects/johndeere-salfa/project-johndeere-7.jpg" alt="John Deere Salfa - Necsa Constructora" class="portfolio-img">
+            <button class="carousel-arrow carousel-prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-arrow carousel-next" aria-label="Foto siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-dots"></div>
+          </div>
+          <div class="portfolio-overlay">
+            <span class="portfolio-tag">Comercial / Industrial</span>
+            <h3 class="portfolio-project-title">John Deere - Salfa</h3>
+            <p class="portfolio-desc">Centro de exhibición y servicio técnico John Deere para Salfa, en Paine, desarrollado con estructura de acero y sistema de pórticos industriales. Superficie construida: 6.500 m².</p>
+          </div>
+        </div>
+
+        <!-- Proyecto 5: Obras Metro (Infraestructura) -->
         <!-- OCULTO TEMPORALMENTE: falta cargar fotos reales de la obra. Descomentar cuando esten listas.
-        <div class="portfolio-item" data-category="comerciales">
+        <div class="portfolio-item reveal" data-category="comerciales">
           <div class="portfolio-carousel">
             <img src="assets/images/projects/metro/project-metro.png" alt="Obras Metro - Necsa Constructora" class="portfolio-img active">
             <button class="carousel-arrow carousel-prev" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button>
@@ -273,15 +316,15 @@
   <section class="stats-section">
     <div class="container">
       <div class="stats-grid">
-        <div class="stat-item">
+        <div class="stat-item reveal">
           <span class="stat-number" data-target="12" data-suffix="+">0</span>
           <p class="stat-label">Años de Trayectoria</p>
         </div>
-        <div class="stat-item">
+        <div class="stat-item reveal">
           <span class="stat-number" data-target="150" data-suffix="+">0</span>
           <p class="stat-label">Proyectos Ejecutados</p>
         </div>
-        <div class="stat-item">
+        <div class="stat-item reveal">
           <span class="stat-number" data-target="300" data-suffix="k+">0</span>
           <p class="stat-label">M2 Proyectados de Mortero</p>
         </div>
@@ -297,40 +340,8 @@
       </div>
       
       <div class="contact-grid">
-        <!-- Información de Oficinas -->
-        <div class="contact-info">
-          <h3 style="font-family: var(--font-headings); font-size: 1.8rem; color: var(--color-primary); margin-bottom: 0.5rem;">Nuestras Oficinas</h3>
-          <p class="contact-lead">Ponte en contacto con nuestro equipo técnico para planificar y cotizar tu próximo proyecto de construcción o ingeniería.</p>
-          
-          <div class="contact-details">
-            <div class="contact-item">
-              <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
-              <div class="contact-text">
-                <h4>Dirección</h4>
-                <p>Av. Consistorial #5791 Of. 59, Peñalolén, Santiago</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-              <div class="contact-text">
-                <h4>Correo Electrónico</h4>
-                <p>contacto@necsa.cl</p>
-              </div>
-            </div>
-            
-            <div class="contact-item">
-              <div class="contact-icon"><i class="fa-regular fa-clock"></i></div>
-              <div class="contact-text">
-                <h4>Horario de Atención</h4>
-                <p>Lun a Vie: 8:30 AM - 6:30 PM<br>Sáb: 9:00 AM - 1:00 PM</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         <!-- Formulario Interactivo -->
-        <div class="contact-form-wrapper">
+        <div class="contact-form-wrapper reveal">
           <h3 style="font-family: var(--font-headings); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 1.5rem;">Cotiza con nosotros</h3>
           <form id="necsa-contact-form" novalidate>
             
@@ -355,9 +366,23 @@
             </button>
             
             <!-- Mensajes de Estado del Formulario -->
-            <div id="form-alert" class="form-message"></div>
+            <div id="form-alert" class="form-message" role="alert" aria-live="assertive"></div>
             
           </form>
+        </div>
+
+        <!-- Mapa de Ubicación -->
+        <div class="contact-map-wrapper reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Av.+Consistorial+5791+Of.+59,+Pe%C3%B1alol%C3%A9n,+Santiago&output=embed"
+            width="100%"
+            height="100%"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación de Necsa Constructora en el mapa">
+          </iframe>
         </div>
       </div>
     </div>
@@ -371,7 +396,6 @@
         <!-- Columna 1: Nosotros -->
         <div class="footer-about">
           <div class="logo">
-            <img src="assets/images/logos/logo-n-sola.png" alt="Necsa Constructora" style="height: 50px;">
             <img src="assets/images/logos/logo-necsa-constructora.png" alt="Logo Necsa Constructora" style="height: 40px; border-radius: var(--border-radius-sm); background-color: #fff; padding: 3px;">
           </div>
           <p class="footer-desc">Ingeniería, montaje industrial, obras de infraestructura y soluciones de hormigón proyectado sismorresistentes con los máximos estándares en Santiago de Chile.</p>
@@ -395,10 +419,10 @@
         <div class="footer-column">
           <h3>Especialidades</h3>
           <ul class="footer-links">
-            <li><a href="#servicios">Montaje Industrial</a></li>
-            <li><a href="#servicios">Obras de Infraestructura</a></li>
-            <li><a href="#servicios">Hormigón Proyectado / Shotcrete</a></li>
-            <li><a href="#servicios">Ingeniería y Cálculo DOM</a></li>
+            <li><a href="#servicios">Necsa Montajes</a></li>
+            <li><a href="#servicios">Necsa Infraestructura</a></li>
+            <li><a href="#servicios">Necsa Obras Especiales</a></li>
+            <li><a href="#servicios">Necsa Ingeniería</a></li>
           </ul>
         </div>
         
@@ -408,11 +432,15 @@
           <ul class="footer-links" style="gap: 15px;">
             <li style="color: rgba(255,255,255,0.75); font-size: 0.95rem; display: flex; gap: 8px;">
               <i class="fa-solid fa-envelope" style="color: var(--color-accent); margin-top: 4px;"></i>
-              <span>contacto@necsa.cl</span>
+              <a href="mailto:contacto@necsa.cl">contacto@necsa.cl</a>
+            </li>
+            <li style="color: rgba(255,255,255,0.75); font-size: 0.95rem; display: flex; gap: 8px;">
+              <i class="fa-solid fa-phone" style="color: var(--color-accent); margin-top: 4px;"></i>
+              <a href="https://wa.me/56982619836" target="_blank" rel="noopener noreferrer">+56 9 8261 9836</a>
             </li>
             <li style="color: rgba(255,255,255,0.75); font-size: 0.95rem; display: flex; gap: 8px;">
               <i class="fa-solid fa-location-dot" style="color: var(--color-accent); margin-top: 4px;"></i>
-              <span>Av. Consistorial #5791 OF.59, Peñalolén</span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Av.+Consistorial+5791+Of.+59%2C+Pe%C3%B1alol%C3%A9n%2C+Santiago" target="_blank" rel="noopener noreferrer">Av. Consistorial #5791 OF.59, Peñalolén</a>
             </li>
             <li style="color: rgba(255,255,255,0.75); font-size: 0.95rem; display: flex; gap: 8px;">
               <i class="fa-regular fa-clock" style="color: var(--color-accent); margin-top: 4px;"></i>

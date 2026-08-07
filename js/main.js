@@ -6,6 +6,7 @@
   3. Filtrado Interactivo del Portafolio con transiciones suaves
   4. Animación de Contadores de Métricas (Scroll-Triggered)
   5. Validación y Simulación de Formulario de Contacto Premium
+  6. Animación de Aparición al Hacer Scroll (Reveal on Scroll)
 */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,7 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
-  const heroActions = document.querySelector('.hero-actions');
+  const heroSection = document.querySelector('.hero');
+  const heroBg = document.querySelector('.hero-bg');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const handleScroll = () => {
     // 1.1 Cambiar fondo del header al hacer scroll
@@ -26,14 +29,20 @@ document.addEventListener('DOMContentLoaded', () => {
       header.classList.remove('scrolled');
     }
 
-    // 1.1.b Expandir el logo (N -> NECSA) al acercarse al botón "Ver Obras Realizadas"
-    if (heroActions) {
-      const triggerPoint = heroActions.getBoundingClientRect().top + window.scrollY - 140;
-      if (window.scrollY > triggerPoint) {
-        header.classList.add('logo-expand');
-      } else {
-        header.classList.remove('logo-expand');
-      }
+    // 1.1.b Expandir el logo (N -> NECSA) al salir de la portada
+    const triggerPoint = heroSection
+      ? heroSection.getBoundingClientRect().top + window.scrollY + heroSection.offsetHeight * 0.5
+      : 400;
+
+    if (window.scrollY > triggerPoint) {
+      header.classList.add('logo-expand');
+    } else {
+      header.classList.remove('logo-expand');
+    }
+
+    // 1.1.c Parallax sutil de la foto del hero (se mueve más lento que el contenido)
+    if (heroBg && !prefersReducedMotion && window.scrollY < window.innerHeight * 1.2) {
+      heroBg.style.transform = `translateY(${window.scrollY * 0.32}px)`;
     }
 
     // 1.2 Detectar sección activa en el menú
@@ -65,17 +74,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const navMenu = document.getElementById('nav-menu');
   
   if (navToggle && navMenu) {
+    const setMenuState = (isOpen) => {
+      navToggle.classList.toggle('open', isOpen);
+      navMenu.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      navToggle.setAttribute('aria-label', isOpen ? 'Cerrar Menú' : 'Abrir Menú');
+    };
+
     navToggle.addEventListener('click', () => {
-      navToggle.classList.toggle('open');
-      navMenu.classList.toggle('open');
+      setMenuState(!navMenu.classList.contains('open'));
     });
-    
+
     // Cerrar menú móvil al hacer click en cualquier enlace de navegación
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        navToggle.classList.remove('open');
-        navMenu.classList.remove('open');
+        setMenuState(false);
       });
+    });
+
+    // Cerrar menú móvil con la tecla Escape (accesibilidad de teclado)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+        setMenuState(false);
+        navToggle.focus();
+      }
     });
   }
 
@@ -138,10 +160,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (current < 0) current = 0;
     item.classList.toggle('is-first', current === 0);
 
-    // Generar puntos indicadores dinámicamente
+    // Generar puntos indicadores dinámicamente (botones reales: operables con
+    // teclado y lector de pantalla, no solo con mouse)
     const dots = images.map((_, i) => {
-      const dot = document.createElement('span');
+      const dot = document.createElement('button');
+      dot.type = 'button';
       dot.className = 'dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', `Ver foto ${i + 1} de ${images.length}`);
+      dot.setAttribute('aria-current', i === current ? 'true' : 'false');
       dot.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
@@ -154,9 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
     function goTo(index) {
       images[current].classList.remove('active');
       dots[current].classList.remove('active');
+      dots[current].setAttribute('aria-current', 'false');
       current = (index + images.length) % images.length;
       images[current].classList.add('active');
       dots[current].classList.add('active');
+      dots[current].setAttribute('aria-current', 'true');
       item.classList.toggle('is-first', current === 0);
     }
 
@@ -300,5 +328,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
       }, 1500); // 1.5 segundos de carga simulada
     });
+  }
+
+  /* ==========================================================================
+     6. ANIMACIÓN DE APARICIÓN AL HACER SCROLL (REVEAL ON SCROLL)
+     ========================================================================== */
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if (revealElements.length) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
   }
 });

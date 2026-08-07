@@ -18,6 +18,12 @@ $RECYCLE.BIN/
 *.log
 .DS_Store
 
-# Fotos originales sin editar (respaldo pesado, solo local).
-# La seleccion final curada del cliente vive en materiales/seleccion-cliente/
-materiales/fotos-originales/
+# Material bruto del cliente (fotos, logos sin procesar, referencias de diseño).
+# Es respaldo pesado de trabajo, no forma parte del sitio publicado.
+materiales/
+
+# Identidad corporativa (manual de marca, plantillas) - no se sirve en el sitio.
+identidad-corporativa/
+
+# Archivos de verificación/prueba temporales
+assets/images/logos/_zoom_check.png
